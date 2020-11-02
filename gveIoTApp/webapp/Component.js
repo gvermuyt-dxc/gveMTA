@@ -1,3 +1,4 @@
+jQuery.sap.registerModulePath("sap.ui.iot", "/resources/sap/ui/iot/");
 sap.ui.define([
 	"sap/ui/core/UIComponent",
 	"sap/ui/Device",

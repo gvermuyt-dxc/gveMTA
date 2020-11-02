@@ -14,6 +14,21 @@ modules:
       - name: gveMTA_html5_repo_runtime
       - name: uaa_gveMTA
       - name: portal_resources_gveMTA
+      - name: iotae
+      - name: sapui52
+        group: destinations
+        properties:
+          strictSSL: false
+          forwardAuthToken: true
+          name: sapui52
+          url: '~{url}'
+      - name: IOTAS_CONTROLS
+        group: destinations
+        properties:
+          strictSSL: false
+          forwardAuthToken: true
+          name: IOTAS_CONTROLS
+          url: '~{url}'        
   - name: gveMTA_ui_deployer
     type: com.sap.html5.application-content
     path: gveMTA_ui_deployer
@@ -33,11 +48,68 @@ modules:
       commands:
         - npm install
         - npm run build
+      group: destinations
       supported-platforms: []
       build-result: dist
+    requires:
+      - name: uaa_gveMTA
+      - name: IOTAS-ADVANCEDLIST-THING-ODATA
+        group: destinations
+        properties:
+          strictSSL: false
+          forwardAuthToken: true
+          name: IOTAS-ADVANCEDLIST-THING-ODATA
+          url: '~{url}'
+      - name: IOTAS-DETAILS-THING-ODATA
+        group: destinations
+        properties:
+          strictSSL: false
+          forwardAuthToken: true
+          name: IOTAS-DETAILS-THING-ODATA
+          url: '~{url}'
+      - name: IOTAS-COMPOSITE-EVENTS-ODATA
+        group: destinations
+        properties:
+          strictSSL: false
+          forwardAuthToken: true
+          name: IOTAS-COMPOSITE-EVENTS-ODATA
+          url: '~{url}'
+      - name: IOTAS_CONTROLS
+        group: destinations
+        properties:
+          strictSSL: false
+          forwardAuthToken: true
+          name: IOTAS_CONTROLS
+          url: '~{url}'
+      - name: IOTAS
+        group: destinations
+        properties:
+          strictSSL: false
+          forwardAuthToken: true
+          name: IOTAS
+          url: '~{url}'
+      - name: IOTAS-FILEIMAGE
+        group: destinations
+        properties:
+          strictSSL: false
+          forwardAuthToken: true
+          name: IOTAS-FILEIMAGE
+          url: '~{url}'
+      - name: sapui52
+        group: destinations
+        properties:
+          strictSSL: false
+          forwardAuthToken: true
+          name: sapui52
+          url: '~{url}'
   - name: flp
     type: com.sap.application.portal.content
     path: flp
+    parameters:
+      stack: cflinuxfs3
+      memory: 128M
+      buildpack: 'https://github.com/cloudfoundry/nodejs-buildpack/releases/download/v1.6.39/nodejs-buildpack-cflinuxfs3-v1.6.39.zip'
+      execute-app: false    
     requires:
       - name: portal_resources_gveMTA
         parameters:
@@ -50,6 +122,21 @@ modules:
       - name: gveMTA_html5_repo_host
       - name: gveMTA_ui_deployer
 resources:
+  - name: IOTAS-ADVANCEDLIST-THING-ODATA
+    properties:
+      url: 'https://advancedlist-thing-sap.cfapps.eu10.hana.ondemand.com'
+  - name: IOTAS-DETAILS-THING-ODATA
+    properties:
+      url: 'https://details-thing-sap.cfapps.eu10.hana.ondemand.com'
+  - name: IOTAS-COMPOSITE-EVENTS-ODATA
+    properties:
+      url: 'https://composite-events-odata.cfapps.eu10.hana.ondemand.com'
+  - name: IOTAS
+    properties:
+      url: 'https://appiot-mds.cfapps.eu10.hana.ondemand.com'
+  - name: IOTAS-FILEIMAGE
+    properties:
+      url: 'https://appiot-fs.cfapps.eu10.hana.ondemand.com'
   - name: gveMTA_html5_repo_runtime
     parameters:
       service-plan: app-runtime
@@ -76,3 +163,11 @@ resources:
       service-plan: standard
       service: portal
     type: org.cloudfoundry.managed-service
+  - name: sapui52
+    properties:
+      url: 'https://sapui5.hana.ondemand.com'
+  - name: iotae
+    type: org.cloudfoundry.existing-service
+  - name: IOTAS_CONTROLS
+    properties:
+      url: 'https://sapuiiot.cfapps.eu10.hana.ondemand.com'    

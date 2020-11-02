@@ -86,8 +86,7 @@
 				"sap.ui.core": {},
 				"sap.m": {},
 				"sap.ui.layout": {},
-				"sap.ui.vbm": {},
-				"sap.ui.iot": {}
+				"sap.ui.vbm": {}
 			}
 		},
 		"contentDensities": {

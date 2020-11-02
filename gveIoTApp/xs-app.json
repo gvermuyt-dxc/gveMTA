@@ -4,12 +4,18 @@
   "logout": {
     "logoutEndpoint": "/do/logout"
   },
-  "routes": [
-    {
-      "source": "^(.*)$",
-      "target": "$1",
-      "service": "html5-apps-repo-rt",
-      "authenticationType": "xsuaa"
-    }
-  ]
+"routes": [{
+		"source": "^/IOTAS-ADVANCEDLIST-THING-ODATA/(.*)$",
+		"service": "com.sap.leonardo.iot",
+		"endpoint": "advancedlist-thing-sap",
+		"target": "$1",
+		"authenticationType": "xsuaa",
+		"csrfProtection": false
+	},
+	{
+		"source": "^(.*)$",
+		"target": "$1",
+		"service": "html5-apps-repo-rt",
+		"authenticationType": "xsuaa"
+	}]
 }
