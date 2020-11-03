@@ -53,27 +53,27 @@ modules:
       build-result: dist
     requires:
       - name: uaa_gveMTA
-      - name: IOTAS-ADVANCEDLIST-THING-ODATA
-        group: destinations
-        properties:
-          strictSSL: false
-          forwardAuthToken: true
-          name: IOTAS-ADVANCEDLIST-THING-ODATA
-          url: '~{url}'
-      - name: IOTAS-DETAILS-THING-ODATA
-        group: destinations
-        properties:
-          strictSSL: false
-          forwardAuthToken: true
-          name: IOTAS-DETAILS-THING-ODATA
-          url: '~{url}'
-      - name: IOTAS-COMPOSITE-EVENTS-ODATA
-        group: destinations
-        properties:
-          strictSSL: false
-          forwardAuthToken: true
-          name: IOTAS-COMPOSITE-EVENTS-ODATA
-          url: '~{url}'
+#      - name: IOTAS-ADVANCEDLIST-THING-ODATA
+#        group: destinations
+#        properties:
+#          strictSSL: false
+#          forwardAuthToken: true
+#          name: IOTAS-ADVANCEDLIST-THING-ODATA
+#          url: '~{url}'
+#      - name: IOTAS-DETAILS-THING-ODATA
+#        group: destinations
+#        properties:
+#          strictSSL: false
+#          forwardAuthToken: true
+#          name: IOTAS-DETAILS-THING-ODATA
+#          url: '~{url}'
+#      - name: IOTAS-COMPOSITE-EVENTS-ODATA
+#        group: destinations
+#        properties:
+#          strictSSL: false
+#          forwardAuthToken: true
+#          name: IOTAS-COMPOSITE-EVENTS-ODATA
+#          url: '~{url}'
       - name: IOTAS_CONTROLS
         group: destinations
         properties:
@@ -81,20 +81,20 @@ modules:
           forwardAuthToken: true
           name: IOTAS_CONTROLS
           url: '~{url}'
-      - name: IOTAS
-        group: destinations
-        properties:
-          strictSSL: false
-          forwardAuthToken: true
-          name: IOTAS
-          url: '~{url}'
-      - name: IOTAS-FILEIMAGE
-        group: destinations
-        properties:
-          strictSSL: false
-          forwardAuthToken: true
-          name: IOTAS-FILEIMAGE
-          url: '~{url}'
+#      - name: IOTAS
+#        group: destinations
+#        properties:
+#          strictSSL: false
+#          forwardAuthToken: true
+#          name: IOTAS
+#          url: '~{url}'
+#      - name: IOTAS-FILEIMAGE
+#        group: destinations
+#        properties:
+#          strictSSL: false
+#          forwardAuthToken: true
+#          name: IOTAS-FILEIMAGE
+#          url: '~{url}'
       - name: sapui52
         group: destinations
         properties:
@@ -102,6 +102,7 @@ modules:
           forwardAuthToken: true
           name: sapui52
           url: '~{url}'
+      - name: iotae
   - name: flp
     type: com.sap.application.portal.content
     path: flp
